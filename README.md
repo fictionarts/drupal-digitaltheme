@@ -1,11 +1,21 @@
-# Digital Theme theme
+# DigitalTheme
 
-[Bootstrap 5](https://www.drupal.org/project/bootstrap5) subtheme.
+A custom Drupal Bootstrap 5 subtheme designed to support a shopping catalog user experience with advanced schema generation.
 
-## Development.
+## Features
 
-### CSS compilation.
+- Drupal Bootstrap 5 subtheme architecture
+- Custom theme development using Twig, CSS, and JavaScript
+- Shopping catalog user experience support
+- Advanced schema generation capabilities
 
-Prerequisites: install [sass](https://sass-lang.com/install).
+## Development
 
-To compile, run from subtheme directory: `sass scss/style.scss css/style.css && sass scss/ck5style.scss css/ck5style.css`
+### CSS Compilation
+
+Prerequisites: Install [Sass](https://sass-lang.com/install).
+
+From the subtheme directory, compile the SCSS files:
+
+```bash
+sass scss/style.scss css/style.css && sass scss/ck5style.scss css/ck5style.css
