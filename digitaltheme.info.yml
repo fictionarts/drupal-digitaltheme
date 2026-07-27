@@ -26,3 +26,6 @@ regions:
   footer: Footer
 libraries-override:
   bootstrap5/global-styling: false
+license:
+  name: GPL-2.0-or-later
+  url: https://www.gnu.org/licenses/gpl-2.0.html
