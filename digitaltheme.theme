@@ -1,5 +1,8 @@
 <?php
 
+use Drupal\Core\Render\AttachmentsInterface;
+
+
 /**
  * @file
  * DigitalTheme custom functionality.
@@ -18,8 +21,6 @@
  */
 
 
-
-
 function digitaltheme_preprocess_html(&$variables){
 
 $schema =
@@ -34,10 +35,15 @@ JSON_PRETTY_PRINT |
 JSON_UNESCAPED_SLASHES
 );
 
+  // Add the current content entity ID to the body classes.
+  $route_match = \Drupal::routeMatch();
+  $node = $route_match->getParameter('node');
+
+  if ($node instanceof \Drupal\node\NodeInterface) {
+    $variables['content_entity_id'] = $node->id();
+  }
+
 }
-
-
-
 
 
 

@@ -67,23 +67,30 @@
  *
  */
 #}
-<div class="card">
-	<a href="{{ node.field_digital_product_buy_url.uri }}" rel="nofollow" target="_blank">
-	{{ content.field_digital_product_image_url }}
+{% set brand = node.field_digital_brand.entity %}
+{% set brand_name = brand ? brand.getName() : '' %}
+{% set image = node.field_digital_product_image.entity %}
+<div class="card product-card">
+	<a href="{{ node.field_digital_product_buy_url.0.uri }}" rel="sponsored nofollow noopener" target="_blank" aria-label="Buy {{ brand_name }} {{ node.getTitle() }} on Karmaloop">
+		<img src="{{ file_url(image.uri.value) }}" alt="{{ node.getTitle() }}" width="{{ node.field_digital_product_image.0.width }}" height="{{ node.field_digital_product_image.0.height }}" loading="lazy" class="img-fluid" itemprop="image">
 	</a>
 	<div class="card-body">
 		<div class="row">
-			<div class="col-9">
-				<h3 class="card-title">
-					<a href="{{ node.field_digital_product_buy_url.uri }}" rel="nofollow" target="_blank">
-						{{ label }}
+			<div class="col-8">
+				<h3 class="card-title h6 mb-0">
+					<a href="{{ node.field_digital_product_buy_url.uri }}" rel="sponsored nofollow noopener" target="_blank">
+						{{ node.label }}
 					</a>
 				</h3>
+				<span class="product-brand d-block text-muted small">{{ brand_name }}</span>
 			</div>
-			<div class="col-3">
+			<div class="col-4 text-end">
 				{{ content.field_digital_full_price }}
 			</div>
 		</div>
-		{{ content.search_api_excerpt }}
+{{ content.search_api_excerpt }}
+		<!-- Outbound Store Indicator -->
+		<div class="product-merchant small text-muted">Available at Karmaloop</div>
 	</div>
 </div>
+

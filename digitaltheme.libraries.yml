@@ -4,3 +4,15 @@ global-styling:
       css/style.css: {}
       css/digital.css: {}
       css/header.css: {}
+  js:
+    js/affiliate-tracking.js: {}
+  dependencies:
+    - core/drupal
+    - core/once
+fontawesome:
+  css:
+    theme:
+      css/fontawesome/fontawesome.min.css: {}
+      css/fontawesome/solid.min.css: {}
+      css/fontawesome/regular.min.css: {}
+      css/fontawesome/brands.min.css: {}

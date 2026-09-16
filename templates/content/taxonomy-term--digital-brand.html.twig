@@ -34,19 +34,7 @@
 <div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
   <div class="content">
 
-    {{ content|without('field_faqs') }}
-
-{% if content.field_faqs %}
-<section class="faq-section pt-3" id="faq">
-
-<div class="accordion" id="faq-schema">
-
-{{ content.field_faqs }}
-
-</div>
-
-</section>
-{% endif %}
+    {{ content }}
 
   </div>
 </div>

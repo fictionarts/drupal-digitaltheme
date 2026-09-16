@@ -29,23 +29,12 @@
     'vocabulary-' ~ term.bundle|clean_class,
   ]
 %}
-<div class="row g-0">
-  <div class="col-4">
-    <div class="digital-image">
-{% if not term.field_digital_image.isEmpty() %}
-        {{ content.field_digital_image }}
-{% else %}
-        <a href="{{ url }}" title="Explore {{ term.label }}"><img src="/{{ directory }}/images/default-urban-clothing-brand.jpg" alt="{{ term.label }}" class="img-fluid"></a>
-{% endif %}
-    </div>
-  </div>
 
-  <div class="col-8">
-    <div class="card p-3">
-      <h3 class="h6">
-        <a href="{{ url }}" title="Discover Brand">{{ name }}</a>
-      </h3>
-      {{ content|without('field_digital_image') }}
-    </div>
+
+<div{{ attributes.setAttribute('id', 'taxonomy-term-' ~ term.id).addClass(classes) }}>
+  <div class="content" id="brand">
+
+    {{ content }}
+
   </div>
 </div>

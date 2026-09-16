@@ -56,7 +56,7 @@ set footer_classes = ' ' ~
   (b5_footer_bg_schema != 'none' ? " bg-#{b5_footer_bg_schema}" : ' ')
 %}
 
-<header role="banner">
+<header role="banner" class="urban-header">
   {{ page.header }}
 
   {% if page.nav_branding or page.nav_main or page.nav_additional %}
@@ -117,15 +117,6 @@ set footer_classes = ' ' ~
   </div>
 {% endif %}
 
-{% if page.collection %}
-  <div class="border-bottom" id="products">
-    <div class="{{ b5_top_container }}">
-      {{ page.collection }}
-    </div>
-  </div>
-{% endif %}
-
-
   {%
   set sidebar_first_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-sm-6 col-lg-3' : 'col-12 col-lg-3'
   %}
@@ -138,7 +129,7 @@ set footer_classes = ' ' ~
   set content_classes = (page.sidebar_first and page.sidebar_second) ? 'col-12 col-lg-6' : ((page.sidebar_first or page.sidebar_second) ? 'col-12 col-lg-9' : 'col-12' )
    %}
 
-
+<div class="digital-body">
   <div class="{{ b5_top_container }}">
     <div class="row g-0">
       {% if page.sidebar_first %}
@@ -156,6 +147,33 @@ set footer_classes = ' ' ~
       {% endif %}
     </div>
   </div>
+</div>
+
+
+{% if page.content_mid %}
+<div class="border-top">
+  <div class="{{ b5_top_container }}">
+    {{ page.content_mid }}
+  </div>
+</div>
+{% endif %}
+
+{% if page.collection %}
+  <div class="border-top" id="featured-products" itemscope itemtype="https://schema.org/ItemList">
+    <div class="{{ b5_top_container }}">
+      {{ page.collection }}
+    </div>
+  </div>
+{% endif %}
+
+
+  {% if page.bottom_top %}
+  <div class="border-top">
+    <div class="{{ b5_top_container }}">
+      {{ page.bottom_top }}
+    </div>
+  </div>
+{% endif %}
 
 </main>
 

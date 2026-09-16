@@ -28,6 +28,7 @@
     logged_in ? 'user-logged-in',
     not root_path ? 'path-frontpage' : 'path-' ~ root_path|clean_class,
     node_type ? 'page-node-type-' ~ node_type|clean_class,
+    content_entity_id ? 'content-' ~ content_entity_id,
     db_offline ? 'db-offline',
     (b5_body_schema == 'light' ? ' text-dark' : (b5_body_schema == 'dark' ? ' text-light' :  ' ')),
     (b5_body_bg_schema != 'none' ? " bg-#{b5_body_bg_schema}" : ' '),
@@ -41,17 +42,15 @@
 
 <head-placeholder token="{{ placeholder_token }}">
 
-<link rel="alternate" type="text/plain" href="https://my-urban-clothing.com/llms.txt">
-<link rel="alternate" type="text/plain" href="https://my-urban-clothing.com/llms-full.txt">
+<link rel="preload" href="/themes/custom/digitaltheme/css/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/themes/custom/digitaltheme/css/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin>
 
-{% if schema_json %}
-<script type="application/ld+json">
-{{ schema_json|raw }}
-</script>
-{% endif %}
+<link rel="alternate" type="text/plain" href="https://myurbanclothing.com/llms.txt">
+<link rel="alternate" type="text/plain" href="https://myurbanclothing.com/llms-full.txt">
 
 <title>{{ head_title|safe_join(' | ') }}</title>
 
+{% if not logged_in %}
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-PJX7KGQVF0"></script>
 <script>
@@ -62,8 +61,16 @@
   gtag('config', 'G-PJX7KGQVF0');
 </script>
 
+{% endif %}
     <css-placeholder token="{{ placeholder_token }}">
     <js-placeholder token="{{ placeholder_token }}">
+
+{% if schema_json %}
+<script type="application/ld+json">
+{{ schema_json|raw }}
+</script>
+
+{% endif %}
   </head>
   <body{{ attributes.addClass(body_classes) }}>
     {#

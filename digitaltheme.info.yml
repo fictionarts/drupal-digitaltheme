@@ -4,6 +4,7 @@ description: 'Digital Theme subtheme based on Bootstrap 5 theme.'
 core_version_requirement: '^10.1 || ^11.0'
 'base theme': bootstrap5
 libraries:
+  - digitaltheme/fontawesome
   - digitaltheme/global-styling
   - digitaltheme/global
 ckeditor_stylesheets:
@@ -19,10 +20,12 @@ regions:
   page_header: 'Page header'
   content_top: 'Content top'
   content_top_second: 'Content top second'
+  content_mid: 'Content middle'
   collection: 'Collection'
   content: 'Main content'
   sidebar_first: 'Sidebar first'
   sidebar_second: 'Sidebar second'
+  bottom_top: 'Bottom Top'
   footer: Footer
 libraries-override:
   bootstrap5/global-styling: false

@@ -8,14 +8,12 @@ data-bs-toggle="collapse"
 data-bs-target="#faq-{{ paragraph.id() }}">
 
 {{ content.field_faq_question }}
-
+<i class="digital-accordion-toggle fa-solid fa-chevron-down"></i>
 </button>
 </h3>
 
 
-<div 
-id="faq-{{ paragraph.id() }}"
-class="accordion-collapse collapse">
+<div id="faq-{{ paragraph.id() }}" class="accordion-collapse collapse" data-bs-parent="#faq-accordion">
 
 <div class="accordion-body">
 

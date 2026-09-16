@@ -100,15 +100,7 @@
 
   <div{{ content_attributes.addClass('node__content') }}>
 
-    {{ content|without('field_faqs') }}
-
-{% if content.field_faqs %}
-<section class="faq-section pt-3" id="faq">
-<div class="accordion">
-{{ content.field_faqs }}
-</div>
-</section>
-{% endif %}
+    {{ content }}
 
   </div>
 

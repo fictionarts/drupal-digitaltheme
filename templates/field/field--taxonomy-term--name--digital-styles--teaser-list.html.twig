@@ -37,7 +37,6 @@
  * @see template_preprocess_field()
  */
 #}
-{% set term = element['#object'] %}
 {%
   set classes = [
     'field',
@@ -54,47 +53,18 @@
   ]
 %}
 {% if label_hidden %}
-  {% if multiple %}
-    <div{{ attributes.addClass(classes, 'field__items') }}>
-      {% for item in items %}
-        <div{{ item.attributes.addClass('field__item') }}>
-          {% if term.field_page_heading.value %}
-            {{ term.field_page_heading.value }}
-          {% else %}
-            {{ item.content }}
-          {% endif %}
-        </div>
-      {% endfor %}
-    </div>
-  {% else %}
-    {% for item in items %}
-      {% if term.field_page_heading.value %}
-        {{ term.field_page_heading.value }}
-      {% else %}
-        {{ item.content }}
-      {% endif %}
-    {% endfor %}
-  {% endif %}
+{% if multiple %}
+{% for item in items %}
+{{ item.content }}
+{% endfor %}
 {% else %}
-  <div{{ attributes.addClass(classes) }}>
-    <div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
-
-    {% if multiple %}
-      <div class="field__items">
-    {% endif %}
-
-    {% for item in items %}
-      <div{{ item.attributes.addClass('field__item') }}>
-        {% if term.field_page_heading.value %}
-          {{ term.field_page_heading.value }}
-        {% else %}
-          {{ item.content }}
-        {% endif %}
-      </div>
-    {% endfor %}
-
-    {% if multiple %}
-      </div>
-    {% endif %}
-  </div>
+{% for item in items %}
+{{ item.content }}
+{% endfor %}
+{% endif %}
+{% else %}
+<div{{ title_attributes.addClass(title_classes) }}>{{ label }}</div>
+{% for item in items %}
+{{ item.content }}
+{% endfor %}
 {% endif %}
