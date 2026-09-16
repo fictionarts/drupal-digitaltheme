@@ -8,7 +8,7 @@ DigitalTheme extends the Drupal Bootstrap 5 theme framework by customizing Twig 
 
 View DigitalTheme running in a production ecommerce environment:
 
-https://my-urban-clothing.com/
+https://myurbanclothing.com/
 
 ## Companion Module
 
